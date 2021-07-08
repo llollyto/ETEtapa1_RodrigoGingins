@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>ver</title>
+</head>
+<body background="../static/core/img/cornet.png">
+
+    <!--<nav class="navbar navbar-dark bg-dark"></nav>-->
+    <nav class="navbar navbar-expand-lg navbar-collapse bg-dark">
+        <a class="navbar-brand" style="color: white;"href="#">GroundZero</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active" >
+                <a class="nav-link" href="../templates/home.html" style="color: white;">Home <span class="sr-only"></span></a>
+            </li>
+              <a class="nav-link" href="./core/ver.html" style="color: white;">Mostrar</a>
+            </li> 
+          </ul>
+        </div>
+      </nav>
+
+    <div class="row">
+        <h1 style="color: white; margin-top: 20px; text-align: center;" >Mostrando Proveedor</h1>
+    </div>
+    <table class="table" style="color: white;">
+        <thead>
+            <tr>
+                <th scope="col">id </th>
+                <th scope="col">fotografia</th>
+                <th scope="col">nombre </th>
+                <th scope="col">telefono</th>
+                <th scope="col">direccion</th>
+                <th scope="col">email</th>
+                <th scope="col">pais</th>
+                <th scope="col">pass</th>
+                <th scope="col">Moneda</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {%for pro in proveedores%}
+                <tr>
+                    <td>{{pro.idproveedor}}</td>
+                    <td>{{pro.fotografia}}</td>
+                    <td>{{pro.nombreproveedor}}</td>
+                    <td>{{pro.telefonoproveedor}}</td>
+                    <td>{{pro.direccionproveedor}}</td>
+                    <td>{{pro.emailproveedor}}</td>
+                    <td>{{pro.paisproveedor}}</td>
+                    <td>{{pro.passproveedor}}</td>
+                    <td>{{pro.monedaproveedor}}</td>
+                    <td><a href="{% url 'form_mod_proveedor' pro.idproveedor %}" class="btn btn-primary">Modificar </a></td>
+                    <td><a href="{% url 'form_del_proveedor' pro.idproveedor %}" class="btn btn-danger">Eliminar </a></td>
+                </tr>
+            {%endfor%}
+
+        </tbody>
+
+    </table>
+</body>
+</html>
